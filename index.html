@@ -457,6 +457,7 @@ footer p{flex:1 1 300px}
 .lgf.talking .ava{border-color:var(--alo);transform:translateY(-2px)}
 .lgf b{font-size:12.5px;font-weight:700;line-height:1.15}
 .lgf small{font-size:11px;color:var(--ink-2);line-height:1.15}
+.aw{font-size:10.5px;font-weight:600;color:var(--warn);line-height:1.2}
 @keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 #login.out{animation:lgout .45s ease forwards}
 @keyframes lgout{to{opacity:0;transform:scale(1.01)}}
@@ -496,7 +497,7 @@ footer p{flex:1 1 300px}
       <p class="lg-err" id="lgErr" role="alert"></p>
       <button class="btn primary lg-btn" type="submit" id="lgBtn">Ingresar</button>
       <p class="hint lg-meta">Entorno de demostración · versión 1.0</p>
-      <div class="lg-team"><p class="lg-team-t">Equipo de agentes que hará la migración</p><div class="lg-faces" id="lgFaces"></div></div>
+      <div class="lg-team"><p class="lg-team-t">Equipo de agentes que hará la migración</p><p class="hint" style="text-align:center;margin-top:-6px">Cada agente lleva el nombre de un premio Nobel de Física o premio Turing.</p><div class="lg-faces" id="lgFaces"></div></div>
     </form>
   </div>
 </div>
@@ -524,7 +525,7 @@ footer p{flex:1 1 300px}
       <p class="lede">Un equipo de agentes de inteligencia artificial muda productos, contabilidad, clientes, saldos y canales a <b>Alodiga Core</b>. Lo hacen por partes, mientras cajeros, POS, pago móvil y P2C siguen atendiendo.</p>
       <div class="guide">
         <span class="ava talking" id="heroAva"></span>
-        <div class="bubble"><b class="n">Ana · coordina al equipo</b><span id="heroSay"></span></div>
+        <div class="bubble"><b class="n">Marie Curie · coordina al equipo</b><span id="heroSay"></span></div>
       </div>
       <div class="cta-row">
         <a class="btn primary" href="#conectar">Conectar un core →</a>
@@ -629,7 +630,7 @@ footer p{flex:1 1 300px}
         </div>
         <ul class="steps" id="connSteps"></ul>
         <div class="tables" id="connTables"></div>
-        <div class="conn-done" id="connDone" hidden><span class="ava talking" id="doneAva"></span><div class="bubble" style="flex:1"><b class="n">Ana</b><span id="doneSay"></span><div style="margin-top:10px"><a class="btn primary small" href="#esquemas" id="goSim">Ver la migración →</a></div></div></div>
+        <div class="conn-done" id="connDone" hidden><span class="ava talking" id="doneAva"></span><div class="bubble" style="flex:1"><b class="n">Marie Curie</b><span id="doneSay"></span><div style="margin-top:10px"><a class="btn primary small" href="#esquemas" id="goSim">Ver la migración →</a></div></div></div>
       </div>
     </form>
   </div>
@@ -728,7 +729,7 @@ footer p{flex:1 1 300px}
           <div>
             <label class="big" for="rPct"><span>Cuentas en Alodiga</span><span class="mono" id="rPctTxt">35 %</span></label>
             <input id="rPct" type="range" min="0" max="100" step="5" value="35">
-            <p class="hint">Cada cohorte es un 5 % de las cuentas. Andrés mueve una cohorte cuando todas sus pruebas pasan.</p>
+            <p class="hint">Cada cohorte es un 5 % de las cuentas. Feynman mueve una cohorte cuando todas sus pruebas pasan.</p>
           </div>
           <div>
             <label class="switch"><input type="checkbox" id="rShadow" checked> Modo sombra para cuentas del legado</label>
@@ -743,7 +744,7 @@ footer p{flex:1 1 300px}
           </div>
         </div>
       </div>
-      <div class="rnote" id="rNote"><span class="ava" id="rAva"></span><span id="rNoteTx"><b>Daniela:</b> cada punto es una operación. Va en gris hasta el router; luego se pinta naranja si su cuenta sigue en el legado o azul si ya es de Alodiga. El círculo rosado punteado es la copia en sombra, y la línea punteada entre los dos cores es la réplica de cambios (CDC) que los mantiene al día.</span></div>
+      <div class="rnote" id="rNote"><span class="ava" id="rAva"></span><span id="rNoteTx"><b>Shafi Goldwasser:</b> cada punto es una operación. Va en gris hasta el router; luego se pinta naranja si su cuenta sigue en el legado o azul si ya es de Alodiga. El círculo rosado punteado es la copia en sombra, y la línea punteada entre los dos cores es la réplica de cambios (CDC) que los mantiene al día.</span></div>
       <div class="ticker-wrap">
         <table class="ticker">
           <thead><tr><th>Hora</th><th>Canal</th><th>Operación</th><th>Cuenta</th><th>Cohorte</th><th>Atendida por</th><th>Monto</th><th>Resultado</th></tr></thead>
@@ -890,13 +891,13 @@ function face(o){const h=o.hair,sk=o.skin;let back='',top='';
   <circle cx="23.8" cy="34" r="2.3" fill="#E5737F" opacity=".32"/><circle cx="40.2" cy="34" r="2.3" fill="#E5737F" opacity=".32"/>
   ${beard}<ellipse class="mouth" cx="32" cy="37.4" rx="3.3" ry="1.25" fill="#6e2a2a"/>${glasses}</svg>`}
 const PEOPLE={
- ana:{n:'Ana',r:'coordina al equipo',f:{skin:'#C68863',hair:'#2B1B14',style:'long',shirt:'#151515',bg:'#FFE79A'}},
- sofia:{n:'Sofía',r:'productos',f:{skin:'#F1C7A5',hair:'#8A4B2A',style:'bun',shirt:'#2457E6',bg:'#DCE6FF',glasses:1}},
- ramon:{n:'Ramón',r:'contabilidad',f:{skin:'#A86B4C',hair:'#7A7A74',style:'short',shirt:'#3F4652',bg:'#E7E3DA',beard:1,glasses:1}},
- valen:{n:'Valentina',r:'clientes',f:{skin:'#E0AC85',hair:'#231915',style:'curlylong',shirt:'#D9466E',bg:'#FFE0E8'}},
- andres:{n:'Andrés',r:'saldos y transacciones',f:{skin:'#D9A07B',hair:'#3B2416',style:'short',shirt:'#0F766E',bg:'#D7F2EC'}},
- dani:{n:'Daniela',r:'canales',f:{skin:'#8D5A3B',hair:'#140D0A',style:'curly',shirt:'#D9731A',bg:'#FFE6CC'}},
- hector:{n:'Héctor',r:'conciliación',f:{skin:'#EBC09B',hair:'#4A3426',style:'bald',shirt:'#6D3FC0',bg:'#ECE3FF',beard:1}},
+ ana:{n:'Marie Curie',s:'Curie',aw:'Nobel de Física 1903',r:'coordina al equipo',f:{skin:'#C68863',hair:'#2B1B14',style:'long',shirt:'#151515',bg:'#FFE79A'}},
+ sofia:{n:'Barbara Liskov',s:'Liskov',aw:'Premio Turing 2008',r:'productos',f:{skin:'#F1C7A5',hair:'#8A4B2A',style:'bun',shirt:'#2457E6',bg:'#DCE6FF',glasses:1}},
+ ramon:{n:'Albert Einstein',s:'Einstein',aw:'Nobel de Física 1921',r:'contabilidad',f:{skin:'#A86B4C',hair:'#7A7A74',style:'short',shirt:'#3F4652',bg:'#E7E3DA',beard:1,glasses:1}},
+ valen:{n:'Donna Strickland',s:'Strickland',aw:'Nobel de Física 2018',r:'clientes',f:{skin:'#E0AC85',hair:'#231915',style:'curlylong',shirt:'#D9466E',bg:'#FFE0E8'}},
+ andres:{n:'Richard Feynman',s:'Feynman',aw:'Nobel de Física 1965',r:'saldos y transacciones',f:{skin:'#D9A07B',hair:'#3B2416',style:'short',shirt:'#0F766E',bg:'#D7F2EC'}},
+ dani:{n:'Shafi Goldwasser',s:'Goldwasser',aw:'Premio Turing 2012',r:'canales',f:{skin:'#8D5A3B',hair:'#140D0A',style:'curly',shirt:'#D9731A',bg:'#FFE6CC'}},
+ hector:{n:'Edsger Dijkstra',s:'Dijkstra',aw:'Premio Turing 1972',r:'conciliación',f:{skin:'#EBC09B',hair:'#4A3426',style:'bald',shirt:'#6D3FC0',bg:'#ECE3FF',beard:1}},
  luis:{n:'Luis',r:'Gerente de Productos',f:{skin:'#D7A47F',hair:'#1F1A17',style:'short',shirt:'#24324A',bg:'#FFF2B8'}},
  marta:{n:'Marta',r:'Contadora General',f:{skin:'#F0C9A8',hair:'#B8B2A8',style:'bun',shirt:'#5B3A29',bg:'#FFF2B8',glasses:1}},
  jorge:{n:'Jorge',r:'Oficial de Cumplimiento',f:{skin:'#9C6644',hair:'#141010',style:'short',shirt:'#1E3A2F',bg:'#FFF2B8',beard:1}},
@@ -907,7 +908,7 @@ const PEOPLE={
 for(const k in PEOPLE)PEOPLE[k].svg=face(PEOPLE[k].f);
 const avaHTML=(k,cls='')=>`<span class="ava ${cls}">${PEOPLE[k].svg}</span>`;
 (function loginTeam(){const T=[['ana','Coordinación'],['sofia','Productos'],['ramon','Contabilidad'],['valen','Clientes'],['andres','Saldos'],['dani','Canales'],['hector','Conciliación']];
-  const box=$('#lgFaces');box.innerHTML=T.map(([k,r],i)=>`<div class="lgf" style="animation-delay:${i*70}ms" title="${PEOPLE[k].n} · agente de IA · ${r}">${avaHTML(k)}<b>${PEOPLE[k].n}</b><small>${r}</small></div>`).join('');
+  const box=$('#lgFaces');box.innerHTML=T.map(([k,r],i)=>`<div class="lgf" style="animation-delay:${i*70}ms" title="${PEOPLE[k].n} · agente de IA · ${r} · nombre en honor a ${PEOPLE[k].aw}">${avaHTML(k)}<b>${PEOPLE[k].n}</b><small>${r}</small><span class="aw">${PEOPLE[k].aw}</span></div>`).join('');
   const els=[...box.children];let n=0;
   if(!RM)setInterval(()=>{if($('#login').hidden)return;const el=els[n%els.length];n++;el.classList.add('talking');el.querySelector('.ava').classList.add('talking');
     setTimeout(()=>{el.classList.remove('talking');el.querySelector('.ava').classList.remove('talking')},1100)},1300)})();
@@ -961,7 +962,7 @@ document.querySelectorAll('.part-h').forEach(el=>new IntersectionObserver(es=>es
    HERO
    ========================================================= */
 putAva($('#heroAva'),'ana');
-(async()=>{const el=$('#heroSay');const t='Hola, soy Ana. Coordino a seis agentes que van a mudar tu core a Alodiga sin cerrar una sola taquilla. Empecemos por conectarnos a tu core.';
+(async()=>{const el=$('#heroSay');const t='Hola, soy Marie Curie. Coordino a seis agentes de IA que llevan nombres de premios Nobel de Física y premios Turing, el Nobel de la informática. Vamos a mudar tu core a Alodiga sin cerrar una sola taquilla. Empecemos por conectarnos a tu core.';
   if(RM){el.textContent=t;return}for(let i=0;i<=t.length;i+=2){el.textContent=t.slice(0,i);await wait(28)}el.textContent=t;$('#heroAva').classList.remove('talking')})();
 const HCH=[['Cajeros automáticos',26],['POS · adquirencia',41],['Pago Móvil P2P',38],['P2C / C2P comercios',17],['Switch interbancario',12],['App y banca en línea',29]];
 const hero={vals:HCH.map(c=>Math.round(c[1]*rnd(2600,3100)))};
@@ -988,14 +989,14 @@ document.querySelectorAll('.strat').forEach(b=>b.onclick=()=>{CONF.strategy=b.da
 function markChosen(){['bb','inc'].forEach(k=>{$('#lane-'+k).classList.toggle('chosen',CONF.strategy===k);$('#yours-'+k).hidden=CONF.strategy!==k})}
 putAva($('#connAva'),'ana');putAva($('#doneAva'),'ana');
 const lead=()=>CONF.director==='human'?'director':'ana';
-const first=k=>PEOPLE[k].n.split(' ')[0];
+const first=k=>PEOPLE[k].s||PEOPLE[k].n.split(' ')[0];
 function syncClean(){CONF.clean=$('#oClean').checked;CONF.norm=$('#oNorm').checked;CONF.dup=$('#oDup').checked;CONF.orph=$('#oOrph').checked;
   $('#oSub').classList.toggle('off',!CONF.clean);['#oNorm','#oDup','#oOrph'].forEach(id=>$(id).disabled=!CONF.clean)}
 ['#oClean','#oNorm','#oDup','#oOrph'].forEach(id=>$(id).addEventListener('change',syncClean));
 function syncDirector(){const h=CONF.director==='human';$('#dirAi').setAttribute('aria-pressed',!h);$('#dirHu').setAttribute('aria-pressed',h);$('#dirFields').hidden=!h;
   PEOPLE.director.n=$('#dName').value.trim()||'Director del proceso';PEOPLE.director.r=$('#dRole').value.trim()||'Dirección del proceso';
   putAva($('#dirAva'),lead());
-  $('#dirHint').textContent=h?`${PEOPLE.director.n} da la orden de inicio de cada fase y toma las decisiones. Los agentes ejecutan y le reportan.`:'Ana, agente de IA, coordina al equipo y te consulta cada decisión.';
+  $('#dirHint').textContent=h?`${PEOPLE.director.n} da la orden de inicio de cada fase y toma las decisiones. Los agentes ejecutan y le reportan.`:'Marie Curie, agente de IA, coordina al equipo y te consulta cada decisión.';
   if(typeof renderTeam==='function'){renderTeam();if(!$('#qcard').classList.contains('ask'))qEmpty()}}
 $('#dirAi').onclick=()=>{CONF.director='ai';syncDirector()};$('#dirHu').onclick=()=>{CONF.director='human';syncDirector()};
 ['#dName','#dRole'].forEach(id=>$(id).addEventListener('input',syncDirector));
@@ -1069,7 +1070,7 @@ const INCCAP=[
  [6,'','Ola 1 · Empleados (2 %)','Las cuentas de empleados pasan a Alodiga. El router las reconoce y manda sus operaciones al nuevo core.'],
  [9,'','Ola 2 · Cuentas nuevas y ahorro simple (10 %)','Toda cuenta que se abre ya nace en Alodiga, y se suman los ahorros más sencillos.'],
  [12,'','Ola 3 · Personas: ahorro y corriente (30 %)','Movemos cohortes de 5 %, una por día, cada una con su conciliación.'],
- [13,'warn','Incidente controlado','Héctor detectó un descuadre de intereses en la cohorte 6. Solo esa cohorte vuelve al legado, en minutos. El resto sigue.'],
+ [13,'warn','Incidente controlado','Dijkstra detectó un descuadre de intereses en la cohorte 6. Solo esa cohorte vuelve al legado, en minutos. El resto sigue.'],
  [14,'','Ola 3 retomada','Corregimos la regla de redondeo, repetimos la simulación y la cohorte 6 vuelve a Alodiga.'],
  [15,'','Ola 4 · Préstamos y PyME (55 %)','Préstamos con su cronograma reconstruido y cuentas de pequeñas empresas.'],
  [18,'','Ola 5 · Corporativo y tesorería (80 %)','Clientes grandes con convenios especiales, nóminas y cobranzas.'],
@@ -1161,7 +1162,7 @@ const teamKeys=()=>[lead(),...TEAM.slice(1)];
 const KIND={read:'Leyendo',think:'Pensando',map:'Creando',check:'Verificando',warn:'Ojo',human:'Pide firma',ok:'Listo'};
 const PHASES=[
 {name:'Definición de productos',who:'sofia',ap:'luis',
- what:'Sofía lee los parámetros de cada producto del legado (tasas, capitalización, comisiones, plazos) y los recrea en Alodiga por su API. Antes de publicar recalcula miles de cuotas con los dos motores para demostrar que dan lo mismo.',
+ what:'Barbara Liskov lee los parámetros de cada producto del legado (tasas, capitalización, comisiones, plazos) y los recrea en Alodiga por su API. Antes de publicar recalcula miles de cuotas con los dos motores para demostrar que dan lo mismo.',
  cont:'Los productos se crean en Alodiga sin clientes ni saldos. El legado sigue siendo el único que atiende, así que nada de esto toca la operación del día.',
  counters:[['Productos leídos',37],['Parámetros mapeados',1284],['Cuotas simuladas',12000],['Diferencias a revisión',6,1]],
  beats:[
@@ -1177,7 +1178,7 @@ const PHASES=[
  ['human','Luis, el catálogo de 37 productos está listo. ¿Me lo firmas?',null,null,'Revisé tasas y comisiones contra el tarifario vigente. Firmado.'],
  ['ok','Listo. Productos publicados en {DST}. El legado no se tocó.']]},
 {name:'Definición contable',who:'ramon',ap:'marta',
- what:'Ramón traduce el plan de cuentas y las reglas de contabilización de cada operación. Cada producto de Alodiga queda apuntando a sus cuentas y el balance de comprobación tiene que cuadrar al céntimo.',
+ what:'Albert Einstein traduce el plan de cuentas y las reglas de contabilización de cada operación. Cada producto de Alodiga queda apuntando a sus cuentas y el balance de comprobación tiene que cuadrar al céntimo.',
  cont:'El plan contable se carga una sola vez. La contabilidad oficial sigue en el legado hasta que cada cohorte se mueve con sus asientos de apertura.',
  counters:[['Cuentas contables',1912],['Reglas contables',214],['Productos vinculados',37],['Cuentas puente a revisión',3,1]],
  beats:[
@@ -1192,7 +1193,7 @@ const PHASES=[
  ['human','Marta, el plan contable y las reglas están listos para tu revisión.',null,null,'Las cuentas transitorias me parecen bien. Firmo, con copia a Auditoría Interna.'],
  ['ok','Perfecto. Dejo preparados los asientos de apertura por cohorte.']]},
 {name:'Migración de clientes',who:'valen',ap:'jorge',
- what:'Valentina extrae, limpia y deduplica el maestro de clientes. Normaliza cédulas, RIF, teléfonos y direcciones, y lleva los datos de conozca a su cliente a tablas propias de Alodiga.',
+ what:'Donna Strickland extrae, limpia y deduplica el maestro de clientes. Normaliza cédulas, RIF, teléfonos y direcciones, y lleva los datos de conozca a su cliente a tablas propias de Alodiga.',
  cont:'Los clientes se cargan por cohortes. Si alguien cambia su teléfono o su dirección mientras tanto, el cambio viaja por CDC a Alodiga en segundos.',
  counters:[['Clientes cargados',193536],['Campos normalizados',2709504],['Cambios recibidos por CDC',4127],['Duplicados a revisión',312,1]],
  beats:[
@@ -1207,7 +1208,7 @@ const PHASES=[
  ['human','Jorge, la muestra KYC y los duplicados están listos para validación.',null,null,'Revisé la muestra y resolví los duplicados con el área de clientes. Aprobado.'],
  ['ok','Listo: 193.536 clientes en Alodiga, todavía sin cuentas activas.']]},
 {name:'Saldos y transacciones',who:'andres',ap:'carmen',
- what:'Andrés toma, para cada cohorte, una foto de saldos; carga los préstamos con su cronograma y el histórico para estados de cuenta, y después reaplica en orden todo lo que pasó desde la foto.',
+ what:'Richard Feynman toma, para cada cohorte, una foto de saldos; carga los préstamos con su cronograma y el histórico para estados de cuenta, y después reaplica en orden todo lo que pasó desde la foto.',
  cont:'El cambio de dueño de una cohorte dura segundos. Mientras ocurre, el router retiene y reintenta las operaciones de esas cuentas; el cliente solo ve una respuesta un poco más lenta.',
  counters:[['Cuentas de la cohorte',41870],['Movimientos históricos',18400000],['Delta reaplicado',2316],['Cuentas sin cuadrar',0,1]],
  beats:[
@@ -1221,7 +1222,7 @@ const PHASES=[
  ['human','Carmen, la cohorte 3 está lista para cambiar de dueño. ¿Autorizas?',null,null,'Autorizado. Avísenme cuando el router esté actualizado.'],
  ['ok','Hecho. Las cuentas de la cohorte 3 ya responden desde {DST}.']]},
 {name:'Réplica de canales',who:'dani',ap:'pedro',
- what:'Daniela replica cada integración que hoy tiene la institución: ISO 8583 para cajeros, POS y el switch interbancario; APIs para pago móvil, P2C, transferencias y la app. Primero prueba con tráfico real grabado y luego en modo sombra.',
+ what:'Shafi Goldwasser replica cada integración que hoy tiene la institución: ISO 8583 para cajeros, POS y el switch interbancario; APIs para pago móvil, P2C, transferencias y la app. Primero prueba con tráfico real grabado y luego en modo sombra.',
  cont:'Redes, comercios y terceros siguen conectados al mismo punto de entrada y no cambian nada. Detrás, el router decide por cuenta a qué core va cada mensaje.',
  counters:[['Integraciones',8],['Mensajes reproducidos',6100000],['Comparaciones en sombra',2840000],['Casos explicados',1214,1]],
  beats:[
@@ -1235,7 +1236,7 @@ const PHASES=[
  ['human','Pedro, la certificación de canales está lista para firmar junto con el proveedor del switch.',null,null,'Probamos con la red también. Certificado.'],
  ['ok','Canales certificados. Si la cuenta es de Alodiga, el mensaje va a Alodiga.']]},
 {name:'Conciliación y apagado',who:'hector',ap:'elena',
- what:'Héctor cuadra cada día saldos, asientos y la compensación con cada red. Cuando se mueve la última cohorte, el legado pasa a solo lectura y después se archiva.',
+ what:'Edsger Dijkstra cuadra cada día saldos, asientos y la compensación con cada red. Cuando se mueve la última cohorte, el legado pasa a solo lectura y después se archiva.',
  cont:'El apagado del legado no toca a ningún cliente: todos están en Alodiga desde hace semanas y los canales nunca cerraron.',
  counters:[['Operaciones conciliadas por día',2912004],['Redes cuadradas',6],['Casos manuales',1,1],['Días sin diferencias',58]],
  beats:[
@@ -1332,7 +1333,7 @@ const EXTRA=[
 PHASES.forEach((p,i)=>Object.assign(p,EXTRA[i]));
 KIND.ask='Pregunta';
 
-function renderTeam(){$('#team').innerHTML=teamKeys().map(k=>`<div class="mate" id="m-${k}">${avaHTML(k)}<b>${esc(k==='director'?first(k):PEOPLE[k].n)}</b><em>${k==='ana'?'agente IA · coordina':k==='director'?esc(PEOPLE[k].r)+' · persona':PEOPLE[k].r}</em><small>En espera</small></div>`).join('');
+function renderTeam(){$('#team').innerHTML=teamKeys().map(k=>`<div class="mate" id="m-${k}">${avaHTML(k)}<b>${esc(k==='director'?first(k):PEOPLE[k].n)}</b><em>${k==='ana'?'agente IA · coordina':k==='director'?esc(PEOPLE[k].r)+' · persona':PEOPLE[k].r}</em>${PEOPLE[k].aw?`<span class="aw">${PEOPLE[k].aw}</span>`:''}<small>En espera</small></div>`).join('');
   $('#qTitle').textContent=CONF.director==='human'?`Decisiones de ${first('director')} · dirección del proceso`:'Decisiones para ti';if(PHASES[PH.i])team(PHASES[PH.i].who,PH.done.has(PH.i)?'done':'work')}
 const stepper=$('#stepper');stepper.innerHTML=PHASES.map((p,i)=>`<li><button type="button" data-ph="${i}"><span>Fase ${i+1} · ${PEOPLE[p.who].n}</span><b>${p.name}</b></button></li>`).join('');
 stepper.addEventListener('click',e=>{const b=e.target.closest('[data-ph]');if(b)playPhase(+b.dataset.ph)});
