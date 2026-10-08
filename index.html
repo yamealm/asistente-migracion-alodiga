@@ -480,7 +480,7 @@ footer p{flex:1 1 300px}
       <h1>Asistente de Migración Inteligente</h1>
       <p class="lg-lede">Agentes de inteligencia artificial que llevan productos, contabilidad, clientes, saldos y canales de cualquier core del mercado a Alodiga, sin detener la operación.</p>
       <ul>
-        <li><b>Conexión</b> a IBS, T24, Bantotal, Cobis, FIS u otros</li>
+        <li><b>Conexión</b> a IBS, T24, Bantotal, Cobis, FIS, OpenFIN u otros</li>
         <li><b>Migración incremental</b> por cohortes, con modo sombra</li>
         <li><b>Decisiones y firmas</b> de las personas del banco en cada fase</li>
       </ul>
@@ -554,7 +554,7 @@ footer p{flex:1 1 300px}
         <fieldset>
           <legend><i class="dot d-l"></i>Origen · core legado</legend>
           <div class="field"><label for="cCore">Tipo de core</label>
-            <select id="cCore"><option value="IBS">IBS · IBM i (AS/400)</option><option value="T24">Temenos T24</option><option value="Bantotal">Bantotal</option><option value="Cobis">Cobis</option><option value="FIS">FIS Profile</option><option value="Otro">Otro core</option></select></div>
+            <select id="cCore"><option value="IBS">IBS · IBM i (AS/400)</option><option value="T24">Temenos T24</option><option value="Bantotal">Bantotal</option><option value="Cobis">Cobis</option><option value="FIS">FIS Profile</option><option value="OpenFIN">OpenFIN · SINC (México)</option><option value="Otro">Otro core</option></select></div>
           <div class="row2">
             <div class="field"><label for="cIp">Dirección IP o host</label><input id="cIp" class="mono" value="10.12.4.21" autocomplete="off" spellcheck="false"><span class="err" id="eIp"></span></div>
             <div class="field"><label for="cPort">Puerto</label><input id="cPort" class="mono" value="446" inputmode="numeric" autocomplete="off"><span class="err" id="ePort"></span></div>
@@ -915,7 +915,7 @@ function putAva(el,k){el.innerHTML=PEOPLE[k].svg}
 function talk(el,ms=1600){el.classList.add('talking');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('talking'),ms)}
 
 /* ---------- configuración de conexión (compartida por toda la página) ---------- */
-const CORES={IBS:{port:446,proto:'DB2 for i · JDBC',lib:'IBSPROD'},T24:{port:1521,proto:'Oracle · JDBC',lib:'T24PROD'},Bantotal:{port:1433,proto:'SQL Server · JDBC',lib:'BTPROD'},Cobis:{port:5000,proto:'Sybase ASE · JDBC',lib:'cobis'},FIS:{port:1521,proto:'Oracle · JDBC',lib:'PROFILE'},Otro:{port:5432,proto:'JDBC / API REST',lib:'core'}};
+const CORES={IBS:{port:446,proto:'DB2 for i · JDBC',lib:'IBSPROD'},T24:{port:1521,proto:'Oracle · JDBC',lib:'T24PROD'},Bantotal:{port:1433,proto:'SQL Server · JDBC',lib:'BTPROD'},Cobis:{port:5000,proto:'Sybase ASE · JDBC',lib:'cobis'},FIS:{port:1521,proto:'Oracle · JDBC',lib:'PROFILE'},OpenFIN:{port:443,proto:'API REST · nube o en sitio',lib:'openfin'},Otro:{port:5432,proto:'JDBC / API REST',lib:'core'}};
 const GROUPS=[
  {name:'Producción · Caracas',nodes:[['alodiga-app-01','10.20.1.11'],['alodiga-app-02','10.20.1.12'],['alodiga-db-01','10.20.1.20']]},
  {name:'Contingencia · Valencia',nodes:[['alodiga-dr-app-01','10.30.1.11'],['alodiga-dr-db-01','10.30.1.20']]},
@@ -925,7 +925,7 @@ const dstNodes=()=>CONF.mode==='group'?GROUPS[CONF.g].nodes:[CONF.single];
 const dstLabel=()=>CONF.mode==='group'?`${GROUPS[CONF.g].name} (${GROUPS[CONF.g].nodes.length} ${GROUPS[CONF.g].nodes.length===1?'nodo':'nodos'})`:`${CONF.single[0]} (${CONF.single[1]})`;
 const dstShort=()=>CONF.mode==='group'?GROUPS[CONF.g].name.split(' · ')[0]:CONF.single[0];
 function jdbcUrl(){const {core,ip,port,lib}=CONF;
-  return core==='IBS'?`jdbc:as400://${ip};libraries=${lib}`:(core==='T24'||core==='FIS')?`jdbc:oracle:thin:@${ip}:${port}/${lib}`:core==='Bantotal'?`jdbc:sqlserver://${ip}:${port};databaseName=${lib}`:core==='Cobis'?`jdbc:sybase:Tds:${ip}:${port}/${lib}`:`jdbc:postgresql://${ip}:${port}/${lib}`}
+  return core==='IBS'?`jdbc:as400://${ip};libraries=${lib}`:(core==='T24'||core==='FIS')?`jdbc:oracle:thin:@${ip}:${port}/${lib}`:core==='Bantotal'?`jdbc:sqlserver://${ip}:${port};databaseName=${lib}`:core==='Cobis'?`jdbc:sybase:Tds:${ip}:${port}/${lib}`:core==='OpenFIN'?`https://${ip}:${port}/${lib}/api`:`jdbc:postgresql://${ip}:${port}/${lib}`}
 const fill=s=>s.replace(/\{SRC\}/g,`${CONF.core} (${CONF.ip})`).replace(/\{DST\}/g,dstLabel()).replace(/\{LIB\}/g,CONF.lib)
   .replace(/\{URL\}/g,jdbcUrl()).replace(/\{USER\}/g,CONF.user).replace(/\{TENANT\}/g,CONF.tenant).replace(/\{N1\}/g,dstNodes()[0][1]).replace(/\{IP\}/g,CONF.ip);
 function validIp(v){const m=v.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);return !!m&&m.slice(1).every(x=>+x<=255)}
